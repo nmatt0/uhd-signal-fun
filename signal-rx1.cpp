@@ -1,8 +1,6 @@
-
 #include <iostream>
 #include <vector>
 #include <complex>
-
 #include <uhd/usrp/multi_usrp.hpp>
 
 std::string to_ascii(const std::vector<bool>& bits)
@@ -21,13 +19,13 @@ std::string to_ascii(const std::vector<bool>& bits)
 
 int main()
 {
+    // RADIO SETTINGS
     const double freq = 433.92e6;
     const double sample_rate = 1000000;
     const double gain = 60;
     const std::string antenna = "TX/RX";
     const std::string args = "";
 
-    std::cout << "hello rx\n";
     // get usrp ref
     uhd::usrp::multi_usrp::sptr usrp = uhd::usrp::multi_usrp::make(args);
 
@@ -136,9 +134,5 @@ int main()
 
     std::string m = to_ascii(msg);
     std::cout << "msg: " << m << "\n";
-
-
-
-    
     return 0;
 }
